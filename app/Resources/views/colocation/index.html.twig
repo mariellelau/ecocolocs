@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Colocations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for colocation in colocations %}
+            <tr>
+                <td><a href="{{ path('colocation_show', { 'id': colocation.id }) }}">{{ colocation.id }}</a></td>
+                <td>{{ colocation.nom }}</td>
+                <td>{{ colocation.description }}</td>
+                <td>{{ colocation.adresse }}</td>
+                <td>{{ colocation.codePostal }}</td>
+                <td>{{ colocation.ville }}</td>
+                <td>{{ colocation.longitude }}</td>
+                <td>{{ colocation.latitude }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('colocation_new') }}">Create a new colocation</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,37 @@
+AppBundle\Entity\Colocation:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ColocationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+            nullable: true
+        adresse:
+            type: string
+            length: 255
+            nullable: true
+        codePostal:
+            type: integer
+            nullable: true
+        ville:
+            type: string
+            length: 255
+        longitude:
+            type: string
+            length: 255
+            nullable: true
+        latitude:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

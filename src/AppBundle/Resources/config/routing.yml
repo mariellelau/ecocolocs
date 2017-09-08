@@ -1,0 +1,7 @@
+app_colocation:
+    resource: "@AppBundle/Resources/config/routing/colocation.yml"
+    prefix:   /colocation
+
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }

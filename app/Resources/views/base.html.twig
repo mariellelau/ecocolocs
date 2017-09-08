@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Site des Ecocolocs{% endblock %}</title>
+
+        {% block stylesheets %}
+          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/stylesheets/main.css') }}"/>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block footer %}
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l3 m6 s12">
+                  <img class="footer_logo" src="{{ asset('bundles/app/images/Ecoloc1.jpg') }}" alt="logo ecocolocs">
+                <h6>contact@ecocolocs.fr</h6>
+                <h6>facebook.com/ecocolocs</h6>
+              </div>
+              <div class="col l3 m6 s12">
+                <h6>L'écocolocation</h6>
+                <div>
+                  Le concept
+                </div>
+                <div>
+                  Suis-je une écocoloc ?
+                </div>
+                <div>
+                  Le mouvement des écocolocs
+                </div>
+              </div>
+              <div class="col l3 m6 s12">
+                  <h6>Les colocs</h6>
+              </div>
+              <div class="col l3 m6 s12">
+                  <h6>Les sites utiles</h6>
+                <div>
+                  Revue de presse
+                </div>
+                <div>
+                  Trouver sa coloc
+                </div>
+                <div>
+                  Outils et inspiration
+                </div>
+              </div>
+            </div>
+          </div>
+      </footer>
+        {% endblock footer %}
+        {% block javascripts %}
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

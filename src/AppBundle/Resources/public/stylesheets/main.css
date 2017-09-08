@@ -1,0 +1,76 @@
+@font-face {font-family: "Noteworthy";
+    src: url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.eot");
+    src: url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/016f50054d487d421dc18257a191a3ad.svg#Noteworthy") format("svg");
+}
+
+body {
+  margin:0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.fullImage {
+	width: 100%;
+  margin: 0;
+  height: auto;
+  padding: 0;
+}
+
+.citation {
+  font-family: 'Noteworthy';
+  font-size: 25px;
+  margin-left:10px;
+}
+
+.colGuillemet {
+  width:3% !important;
+  margin-top:2%;
+  padding-right:10px;
+}
+
+.guillemet {
+  width:40px;
+  height:auto;
+  margin-top: 20%;
+  padding-bottom:2%;
+}
+
+.btn, .btn:hover {
+  background-color: #C4D102;
+  font-family: 'Noteworthy';
+  text-transform: none;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.carto {
+	width: 100%;
+  margin: 0;
+  height: 300px;
+  padding: 0;
+}
+
+footer {
+  background-color: #00C2D6 !important;
+  font-family: 'Noteworthy';
+  -webkit-columns: white;
+  color: white;
+}
+
+.footer_logo {
+  max-width: 50%;
+}

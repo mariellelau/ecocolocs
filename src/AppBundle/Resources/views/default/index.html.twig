@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+
+<img class="fullImage" src="{{ asset('bundles/app/images/image1.png') }}" alt="image logo">
+<div class="row">
+  <div class="offset-s3 col s1 colGuil">
+    <img class="guillemet" src="{{ asset('bundles/app/images/citation.png') }}" alt="citation">
+  </div>
+  <div class="col s6">
+    <p class="citation">
+      Nous partageons un lieu de vie, un loyer, de la nourriture. Mais aussi un jardin, un potager et parfois des poules. Et puis, une volontée : créer un mode de vie soutenable pour nous et notre environnement.
+    </p>
+  </div>
+  <div class="row">
+    <div class="offset-s8 col s4">
+      <a href="#" class="btn waves-effect waves-light">L'éco-colocation</a>
+    </div>
+  </div>
+</div>
+<img class="fullImage" src="{{ asset('bundles/app/images/ecocolocs-la_maison.png') }}" alt="image maison">
+<div class="row">
+  <div class="offset-s4 col s6">
+    <p class="citation">
+      Ce site a pour objectif de mettre en relation des écocolocations afin de se motiver et s'entraider à la mise en place d'actions concrètes pour un mode de vie plus résilient.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="offset-s8 col s4">
+    <a href="#" class="btn waves-effect waves-light">Suis-je une écocoloc ?</a>
+  </div>
+</div>
+<div class="carto">
+  <div id="map" style="height:100%;" class="leaflet-container-default"></div>
+</div>
+<div class="row">
+  <div class="offset-s4 col s6">
+    <p class="citation">
+        Nous sommes des dizaines de colocs en France à vivre ensemble, dans des valeurs communes. Rencontrons-nous !
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="offset-s8 col s4">
+    <a href="#" class="btn waves-effect waves-light">Les colocs</a>
+  </div>
+</div>
+ <script>
+    var map;
+    /* initialisation de la fonction initmap */
+    function initmap() {
+        // paramÃ©trage de la carte
+        map = new L.Map('map');
+        // crÃ©ation des "tiles" avec open street map
+        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib='Map data de OpenStreetMap';
+        var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 10, attribution: osmAttrib});
+        // on centre sur la France
+        map.setView(new L.LatLng(46.85, 2.3518),6);
+        map.addLayer(osm);
+    }
+    function addmarker(){
+        {% for colocation in colocations %}
+            mark = new L.marker([{{colocation.latitude}},{{colocation.longitude}}]).addTo(map)
+            .bindPopup("<a href='{{ path('colocation_show', { 'id': colocation.id }) }}'> {{colocation.nom}}")
+        {% endfor %}
+    }
+    function openpopup(){
+        mark.openPopup();
+    }
+    /* on va procÃ©der Ã  l'initialisation de la carte */
+    initmap();
+    addmarker();
+    openpopup();
+</script>
+{% endblock body %}
