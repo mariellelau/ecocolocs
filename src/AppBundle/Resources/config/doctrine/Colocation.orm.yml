@@ -68,4 +68,11 @@ AppBundle\Entity\Colocation:
             type: string
             length: 255
             nullable: true
-    lifecycleCallbacks: {  }
+        photo:
+            type: text
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        preUpdate: [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
