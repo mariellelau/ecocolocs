@@ -37,14 +37,29 @@ class ColocationController extends Controller
       $form = $this->createForm('AppBundle\Form\ColocationType', $colocation);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
-          $adresse = str_replace(' ', '-', $colocation->getAdresse());
-          $codePostal = str_replace(' ', '-', $colocation->getCodePostal());
-          $ville = str_replace(' ', '-', $colocation->getVille());
-          $nominatim = 'http://nominatim.openstreetmap.org/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
-          $nominatim = file_get_contents($nominatim);
-          $nominatim = json_decode($nominatim, true);
-          $colocation->setLatitude($nominatim[0]['lat']);
-          $colocation->setLongitude($nominatim[0]['lon']);
+          $photo = $colocation->getPhoto();
+
+          // Generate a unique name for the file before saving it
+          $fileName = md5(uniqid()).'.'.$photo->guessExtension();
+
+          // Move the file to the directory where brochures are stored
+          $photo->move(
+              $this->getParameter('photos_colocs'),
+              $fileName
+          );
+
+          // Update the 'brochure' property to store the PDF file name
+          // instead of its contents
+          $colocation->setPhoto($fileName);
+
+//          $adresse = str_replace(' ', '-', $colocation->getAdresse());
+//          $codePostal = str_replace(' ', '-', $colocation->getCodePostal());
+//          $ville = str_replace(' ', '-', $colocation->getVille());
+//          $nominatim = 'http://nominatim.openstreetmap.org/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
+//          $nominatim = file_get_contents($nominatim);
+//          $nominatim = json_decode($nominatim, true);
+//          $colocation->setLatitude($nominatim[0]['lat']);
+//          $colocation->setLongitude($nominatim[0]['lon']);
           $em = $this->getDoctrine()->getManager();
           $em->persist($colocation);
           $em->flush();
