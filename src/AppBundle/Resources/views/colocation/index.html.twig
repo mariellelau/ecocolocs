@@ -1,20 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <h1>Les colocs</h1>
-
+    <img src="{{ asset('bundles/app/images/header_colocs.jpg') }}" alt="Les colocs">
 <div class="row">
-  <div class="col s12">
-    <p>
-      Si tu souhaites rejoindre le mouvement, tu peux ajouter ta coloc sur la carte en cliquant sur le crayon en haut à gauche. Tu peux aussi l’ajouter dans la section «Les colocs».
-    </p>
+    <div class="offset-s3 col s6">
+        <p class="citation">
+          Si tu souhaites rejoindre le mouvement, tu peux ajouter ta coloc sur la carte en cliquant sur le crayon en haut à gauche. Tu peux aussi l’ajouter dans la section «Les colocs».
+        </p>
   </div>
 </div>
-
-    <a href="{{ path('colocation_show', { 'id': colocation.id }) }}">{{ colocation.id }}</a>
-    <a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>
-    <a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>
+<div class="row">
+    <div class="offset-s1 col s1">
+        <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+    </div>
+    <div class="col s9">
+        <h2 class="bleu">Ce qu'on y fait</h2>
+    </div>
+</div>
+    {#<a href="{{ path('colocation_show', { 'id': colocation.id }) }}">{{ colocation.id }}</a>#}
+    {#<a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>#}
+    {#<a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>#}
 
 
     <a href="{{ path('colocation_new') }}">Ajouter une colocationn</a>
