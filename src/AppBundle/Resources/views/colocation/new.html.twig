@@ -1,0 +1,198 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajout d'une nouvelle coloc</h1>
+
+    {{ form_start(form) }}
+    <div class="row">
+      <div class="col s6">
+        {{ form_label(form.nom) }}
+        {{ form_errors(form.nom) }}
+        {{ form_widget(form.nom) }}
+      </div>
+      <div class="col s2">
+        {{ form_label(form.nombrePersonnes) }}
+        {{ form_errors(form.nombrePersonnes) }}
+        {{ form_widget(form.nombrePersonnes) }}
+      </div>
+      <div class="col s4">
+        {{ form_label(form.dateCreation) }}
+        {{ form_errors(form.dateCreation) }}
+        {{ form_widget(form.dateCreation) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        {{ form_label(form.description) }}
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        {{ form_label(form.adresse) }}
+        {{ form_errors(form.adresse) }}
+        {{ form_widget(form.adresse) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        {{ form_label(form.codePostal) }}
+        {{ form_errors(form.codePostal) }}
+        {{ form_widget(form.codePostal) }}
+      </div>
+      <div class="col s6">
+        {{ form_label(form.ville) }}
+        {{ form_errors(form.ville) }}
+        {{ form_widget(form.ville) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="offset-s1 col s1">
+        <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+      </div>
+      <div class="col s9">
+        <h2>Ce qu'on y fait</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="jardin" />
+          <label for="jardin">  {{ form_label(form.jardin) }}</label>
+          {{ form_errors(form.jardin) }}
+          {{ form_widget(form.jardin) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/jardin.png')}}" alt="jardin">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="ressource" />
+          <label for="ressource">  {{ form_label(form.ressource) }}</label>
+          {{ form_errors(form.ressource) }}
+          {{ form_widget(form.ressource) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/resources.png')}}" alt="économie de ressources">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="consommation" />
+          <label for="consommation">  {{ form_label(form.consommation) }}</label>
+          {{ form_errors(form.consommation) }}
+          {{ form_widget(form.consommation) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/consommation.png')}}" alt="consommation">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="alimentation" />
+          <label for="alimentation">  {{ form_label(form.alimentation) }}</label>
+          {{ form_errors(form.alimentation) }}
+          {{ form_widget(form.alimentation) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/alimentation.png')}}" alt="alimentation">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="espace" />
+          <label for="espace">  {{ form_label(form.espace) }}</label>
+          {{ form_errors(form.espace) }}
+          {{ form_widget(form.espace) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/espace.png')}}" alt="mutualisation des espaces">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="communaute" />
+          <label for="communaute">  {{ form_label(form.communaute) }}</label>
+          {{ form_errors(form.communaute) }}
+          {{ form_widget(form.communaute) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/communaute.png')}}" alt="vie en communautés">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="quartier" />
+          <label for="quartier">  {{ form_label(form.quartier) }}</label>
+          {{ form_errors(form.quartier) }}
+          {{ form_widget(form.quartier) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/quartier.png')}}" alt="vie de quartier">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="art" />
+          <label for="art">  {{ form_label(form.art) }}</label>
+          {{ form_errors(form.art) }}
+          {{ form_widget(form.art) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/art.png')}}" alt="art et sport">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l2 m6 s12">
+          <input type="checkbox" id="education" />
+          <label for="education">  {{ form_label(form.education) }}</label>
+          {{ form_errors(form.education) }}
+          {{ form_widget(form.education) }}
+      </div>
+      <div class="col l2 m6 s12">
+        <img src="{{ asset('bundles/app/images/education.png')}}" alt="éducation">
+      </div>
+      <div class="col l8 m12 s12">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="center">
+        <input class="btn waves-effect waves-light" type="submit" value="Enregistrer" />
+      </div>
+    </div>
+    {{ form_end(form) }}
+
+<div class="row">
+  <div class="center">
+    <a class="btn waves-effect waves-light" href="{{ path('colocation_index') }}">Liste des colocs</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -13,8 +13,42 @@ AppBundle\Entity\Colocation:
             type: string
             length: 255
             unique: true
+        nombrePersonnes:
+            type: integer
+            nullable: true
+        dateCreation:
+            type: string
+            length: 255
+            nullable: true
         description:
             type: text
+            nullable: true
+        jardin:
+            type: boolean
+            nullable: true
+        ressource:
+            type: boolean
+            nullable: true
+        consommation:
+            type: boolean
+            nullable: true
+        alimentation:
+            type: boolean
+            nullable: true
+        espace:
+            type: boolean
+            nullable: true
+        communaute:
+            type: boolean
+            nullable: true
+        quartier:
+            type: boolean
+            nullable: true
+        art:
+            type: boolean
+            nullable: true
+        education:
+            type: boolean
             nullable: true
         adresse:
             type: string

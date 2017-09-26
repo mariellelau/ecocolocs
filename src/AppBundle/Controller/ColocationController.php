@@ -22,7 +22,7 @@ class ColocationController extends Controller
 
         $colocations = $em->getRepository('AppBundle:Colocation')->findAll();
 
-        return $this->render('colocation/index.html.twig', array(
+        return $this->render('@App/colocation/index.html.twig', array(
             'colocations' => $colocations,
         ));
     }
@@ -64,7 +64,7 @@ class ColocationController extends Controller
     {
         $deleteForm = $this->createDeleteForm($colocation);
 
-        return $this->render('colocation/show.html.twig', array(
+        return $this->render('@App/colocation/show.html.twig', array(
             'colocation' => $colocation,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -86,7 +86,7 @@ class ColocationController extends Controller
             return $this->redirectToRoute('colocation_edit', array('id' => $colocation->getId()));
         }
 
-        return $this->render('colocation/edit.html.twig', array(
+        return $this->render('@App/colocation/edit.html.twig', array(
             'colocation' => $colocation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

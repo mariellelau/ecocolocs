@@ -13,9 +13,26 @@ class ColocationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('description')->add('adresse')->add('codePostal')->add('ville')->add('longitude')->add('latitude');
+        $builder
+          ->add('nom')
+          ->add('nombrePersonnes')
+          ->add('dateCreation')
+          ->add('description')
+          ->add('jardin')
+          ->add('ressource')
+          ->add('consommation')
+          ->add('alimentation')
+          ->add('espace')
+          ->add('communaute')
+          ->add('quartier')
+          ->add('art')
+          ->add('education')
+          ->add('adresse')
+          ->add('codePostal')
+          ->add('ville')
+;
     }
-    
+
     /**
      * {@inheritdoc}
      */

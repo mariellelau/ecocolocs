@@ -16,4 +16,10 @@ class DefaultController extends Controller
           'colocations' => $colocations,
       ));
   }
+
+    public function ecocolocationAction()
+    {
+        return $this->render('@App/ecocolocation.html.twig', array(
+        ));
+    }
 }

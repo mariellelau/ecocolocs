@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Les colocs</h1>
+
+<div class="row">
+  <div class="col s12">
+    <p>
+      Si tu souhaites rejoindre le mouvement, tu peux ajouter ta coloc sur la carte en cliquant sur le crayon en haut à gauche. Tu peux aussi l’ajouter dans la section «Les colocs».
+    </p>
+  </div>
+</div>
+
+    <a href="{{ path('colocation_show', { 'id': colocation.id }) }}">{{ colocation.id }}</a>
+    <a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>
+    <a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>
+
+
+    <a href="{{ path('colocation_new') }}">Ajouter une colocationn</a>
+{% endblock %}
