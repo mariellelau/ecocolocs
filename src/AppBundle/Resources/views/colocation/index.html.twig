@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <img src="{{ asset('bundles/app/images/header_colocs.jpg') }}" alt="Les colocs">
+<div class="row">
+    <div class="offset-s3 col s6">
+        <p class="citation">
+          Si tu souhaites rejoindre le mouvement, tu peux ajouter ta coloc sur la carte en cliquant sur le crayon en haut à gauche. Tu peux aussi l’ajouter dans la section «Les colocs».
+        </p>
+  </div>
+</div>
+<div class="row">
+    <div class="offset-s1 col s1">
+        <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+    </div>
+    <div class="col s9">
+        <h2 class="bleu">Les colocs</h2>
+    </div>
+</div>
+    <div class="row">
+        {%  for colocation in colocations %}
+            {% if colocation.photo %}
+        <div class="col s3">
+            <img class="smallImage" src="{{ asset('uploads/images/') }}{{colocation.photo}}" alt="photo colocation">
+        </div>
+        {% else %}
+            <div class="col s3">
+                <img class="smallImage" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+            </div>
+            {% endif %}
+       <div class="col s3">
+           {{ colocation.nom }}
+           {{ colocation.description[:100] | raw }}(...)
+           <a class="btn waves-effect waves-light" href="{{ path('colocation_show', { 'id': colocation.id }) }}">Super !</a>
+       </div>
+        {% endfor %}
+    </div>
+
+    {#<a href="{{ path('colocation_show', { 'id': colocation.id }) }}">{{ colocation.id }}</a>#}
+    {#<a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>#}
+    {#<a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>#}
+
+
+    <a href="{{ path('colocation_new') }}">Ajouter une colocationn</a>
+{% endblock %}

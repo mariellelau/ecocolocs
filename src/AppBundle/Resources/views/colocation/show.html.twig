@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ colocation.nom }}</h1>
+<div class="row">
+  <div class="col s12 valign-wrapper photoPart">
+    <img src="{{ asset('uploads/images/') }}{{colocation.photo}}" alt="photo colocation">
+  </div>
+</div>
+<div class="row pictos">
+  <div class="offset-s3 col s1 colPicto">
+    <img class="picto" src="{{asset('bundles/app/images/nombrePersonnes.png')}}" alt="profil">
+  </div>
+  <div class="col s2">
+    {{colocation.nombrePersonnes}} personnes
+  </div>
+  <div class="col s1 colPicto">
+    <img class="picto" src="{{asset('bundles/app/images/marqueur.png')}}" alt="marqueur">
+  </div>
+  <div class="col s2">
+    {{colocation.ville}}
+  </div>
+  <div class="col s1 colPicto">
+    <img class="picto" src="{{asset('bundles/app/images/dateCreation.png')}}" alt="calendrier">
+  </div>
+  <div class="col s2">
+    {{colocation.dateCreation}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="offset-s1 col s1">
+    <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+  </div>
+</div>
+<div class="row">
+  <div class="col s9">
+    <h2>Rendez-nous visite !</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="center">
+    <a class="btn waves-light waves-effect" href="{{ path('colocation_index') }}">Liste des colocs</a>
+  </div>
+</div>
+<div class="row">
+  <div class="center">
+      <a class="btn waves-light waves-effect" href="{{ path('colocation_edit', { 'id': colocation.id }) }}">Modifier</a>
+    </div>
+  </div>
+{% endblock %}

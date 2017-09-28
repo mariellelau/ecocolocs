@@ -22,7 +22,7 @@ class ColocationController extends Controller
 
         $colocations = $em->getRepository('AppBundle:Colocation')->findAll();
 
-        return $this->render('colocation/index.html.twig', array(
+        return $this->render('@App/colocation/index.html.twig', array(
             'colocations' => $colocations,
         ));
     }
@@ -37,14 +37,33 @@ class ColocationController extends Controller
       $form = $this->createForm('AppBundle\Form\ColocationType', $colocation);
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
+          $photo = $colocation->getPhoto();
+
+          // Generate a unique name for the file before saving it
+          if ($photo) {
+              $fileName = md5(uniqid()).'.'.$photo->guessExtension();
+
+              // Move the file to the directory where brochures are stored
+              $photo->move(
+                  $this->getParameter('photos_colocs'),
+                  $fileName
+              );
+              $colocation->setPhoto($fileName);
+          }
+
+
           $adresse = str_replace(' ', '-', $colocation->getAdresse());
           $codePostal = str_replace(' ', '-', $colocation->getCodePostal());
           $ville = str_replace(' ', '-', $colocation->getVille());
-          $nominatim = 'http://nominatim.openstreetmap.org/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
+
+          $nominatim = 'https://api-adresse.data.gouv.fr/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
+
+//          $nominatim = 'http://nominatim.openstreetmap.org/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
           $nominatim = file_get_contents($nominatim);
           $nominatim = json_decode($nominatim, true);
-          $colocation->setLatitude($nominatim[0]['lat']);
-          $colocation->setLongitude($nominatim[0]['lon']);
+
+          $colocation->setLatitude($nominatim["features"][0]["geometry"]["coordinates"][1]);
+          $colocation->setLongitude($nominatim["features"][0]["geometry"]["coordinates"][0]);
           $em = $this->getDoctrine()->getManager();
           $em->persist($colocation);
           $em->flush();
@@ -64,7 +83,7 @@ class ColocationController extends Controller
     {
         $deleteForm = $this->createDeleteForm($colocation);
 
-        return $this->render('colocation/show.html.twig', array(
+        return $this->render('@App/colocation/show.html.twig', array(
             'colocation' => $colocation,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -86,7 +105,7 @@ class ColocationController extends Controller
             return $this->redirectToRoute('colocation_edit', array('id' => $colocation->getId()));
         }
 
-        return $this->render('colocation/edit.html.twig', array(
+        return $this->render('@App/colocation/edit.html.twig', array(
             'colocation' => $colocation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
