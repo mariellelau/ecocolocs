@@ -40,26 +40,30 @@ class ColocationController extends Controller
           $photo = $colocation->getPhoto();
 
           // Generate a unique name for the file before saving it
-          $fileName = md5(uniqid()).'.'.$photo->guessExtension();
+          if ($photo) {
+              $fileName = md5(uniqid()).'.'.$photo->guessExtension();
 
-          // Move the file to the directory where brochures are stored
-          $photo->move(
-              $this->getParameter('photos_colocs'),
-              $fileName
-          );
+              // Move the file to the directory where brochures are stored
+              $photo->move(
+                  $this->getParameter('photos_colocs'),
+                  $fileName
+              );
+              $colocation->setPhoto($fileName);
+          }
 
-          // Update the 'brochure' property to store the PDF file name
-          // instead of its contents
-          $colocation->setPhoto($fileName);
 
-//          $adresse = str_replace(' ', '-', $colocation->getAdresse());
-//          $codePostal = str_replace(' ', '-', $colocation->getCodePostal());
-//          $ville = str_replace(' ', '-', $colocation->getVille());
+          $adresse = str_replace(' ', '-', $colocation->getAdresse());
+          $codePostal = str_replace(' ', '-', $colocation->getCodePostal());
+          $ville = str_replace(' ', '-', $colocation->getVille());
+
+          $nominatim = 'https://api-adresse.data.gouv.fr/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
+
 //          $nominatim = 'http://nominatim.openstreetmap.org/search/?q=' . $adresse . '-' . $codePostal . '-' . $ville . '&format=json&addressDetails=1' ;
-//          $nominatim = file_get_contents($nominatim);
-//          $nominatim = json_decode($nominatim, true);
-//          $colocation->setLatitude($nominatim[0]['lat']);
-//          $colocation->setLongitude($nominatim[0]['lon']);
+          $nominatim = file_get_contents($nominatim);
+          $nominatim = json_decode($nominatim, true);
+
+          $colocation->setLatitude($nominatim["features"][0]["geometry"]["coordinates"][1]);
+          $colocation->setLongitude($nominatim["features"][0]["geometry"]["coordinates"][0]);
           $em = $this->getDoctrine()->getManager();
           $em->persist($colocation);
           $em->flush();

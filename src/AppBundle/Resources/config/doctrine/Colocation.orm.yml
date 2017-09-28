@@ -70,6 +70,7 @@ AppBundle\Entity\Colocation:
             nullable: true
         photo:
             type: text
+            nullable: true
     lifecycleCallbacks:
         prePersist: [ preUpload ]
         preUpdate: [ preUpload ]

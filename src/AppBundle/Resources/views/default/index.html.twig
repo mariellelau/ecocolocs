@@ -64,14 +64,16 @@
     }
     function addmarker(){
         {% for colocation in colocations %}
-            mark = new L.marker([{{colocation.latitude}},{{colocation.longitude}}]).addTo(map)
-            .bindPopup("<a href='{{ path('colocation_show', { 'id': colocation.id }) }}'> {{colocation.nom}}")
+            {% if colocation.latitude %}
+                mark{{ colocation.id }} = new L.marker([{{colocation.latitude}},{{colocation.longitude}}]).addTo(map)
+                .bindPopup("<a href='{{ path('colocation_show', { 'id': colocation.id }) }}'> {{colocation.nom}}")
+            {% endif %}
         {% endfor %}
     }
     function openpopup(){
-        mark.openPopup();
+            mark.openPopup();
     }
-    /* on va procÃ©der Ã  l'initialisation de la carte */
+
     initmap();
     addmarker();
     openpopup();

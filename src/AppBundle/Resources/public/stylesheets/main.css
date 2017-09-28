@@ -46,6 +46,11 @@ h6 {
   padding: 0;
 }
 
+.smallImage {
+  width: 200px;
+  height: auto;
+}
+
 .texte_grand {
   font-size: 32px;
   font-family: 'Noteworthy';
@@ -82,6 +87,7 @@ h2 {
   width:40px;
   height:auto;
   margin-top: 20%;
+  margin-left:75%;
   padding-bottom:2%;
 }
 
