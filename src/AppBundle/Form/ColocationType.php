@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,13 +32,15 @@ class ColocationType extends AbstractType
           ->add('adresse')
           ->add('codePostal')
           ->add('ville')
-            ->add('photo', 'Symfony\Component\Form\Extension\Core\Type\FileType', array(
+            ->add('photo', FileType::class, array(
                     'label' => 'Image',
                     'required' => false,
-                    'attr' => array(
-                        'accept' => 'image')
                 )
-            );
+            )
+            ->add('contact')
+            ->add('site')
+            ->add('facebook')
+        ;
     }
 
     /**

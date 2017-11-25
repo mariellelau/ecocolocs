@@ -99,6 +99,19 @@ h2 {
   font-weight: 800;
 }
 
+.colocImage {
+  width: 45%;
+  margin-left:30px;
+}
+
+.colocShowImage {
+  width:25%;
+}
+
+.colocShow {
+  padding-left:10%;
+}
+
 .carto {
   width: 100%;
   margin: 0;
@@ -118,6 +131,10 @@ h2 {
 
 .picto {
   width: 25px;
+}
+
+.margin100 {
+  margin-bottom:100px;
 }
 
 footer {

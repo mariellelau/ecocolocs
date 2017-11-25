@@ -2,17 +2,16 @@
 
 {% block body %}
     <h1>{{ colocation.nom }}</h1>
-<div class="row">
-  <div class="col s12 valign-wrapper photoPart">
-    <img src="{{ asset('uploads/images/') }}{{colocation.photo}}" alt="photo colocation">
-  </div>
-</div>
 <div class="row pictos">
   <div class="offset-s3 col s1 colPicto">
     <img class="picto" src="{{asset('bundles/app/images/nombrePersonnes.png')}}" alt="profil">
   </div>
   <div class="col s2">
+  {% if colocation.nombrePersonnes %}
     {{colocation.nombrePersonnes}} personnes
+    {% else %}
+    nombre de personnes non indiqué
+  {% endif %}
   </div>
   <div class="col s1 colPicto">
     <img class="picto" src="{{asset('bundles/app/images/marqueur.png')}}" alt="marqueur">
@@ -24,18 +23,144 @@
     <img class="picto" src="{{asset('bundles/app/images/dateCreation.png')}}" alt="calendrier">
   </div>
   <div class="col s2">
+    {% if colocation.dateCreation %}
     {{colocation.dateCreation}}
+      {% else %}
+        date de création non indiquée
+    {% endif %}
   </div>
 </div>
-
+<div class="row">
+  <div class="offset-s1 col s10">
+    <p class="noteworthy">
+        {{ colocation.description }}
+    </p>
+  </div>
+</div>
 <div class="row">
   <div class="offset-s1 col s1">
     <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
   </div>
+  <div class="col s9">
+    <h2 class="bleu">Ce qu'on y fait</h2>
+  </div>
 </div>
 <div class="row">
+    {% if colocation.jardin %}
+      <div class="col s3 center">
+        <img class="colocShowImage" src="{{ asset('bundles/app/images/jardin.png') }}" alt="">
+        <div class="">
+          Jardin
+        </div>
+      </div>
+      {% endif %}
+      {% if colocation.communaute %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/communaute.png') }}" alt="">
+          <div class="">
+              Vie en communauté
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.ressource %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/resources.png') }}" alt="">
+          <div class="">
+            Economie de resources
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.quartier %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/quartier.png') }}" alt="">
+          <div class="">
+            Vie de quartier
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.consommation %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/consommation.png') }}" alt="">
+          <div class="">
+            Consommation
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.art %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/art.png') }}" alt="">
+          <div class="row colocShow">
+            Arts & sports
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.alimentation %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/alimentation.png') }}" alt="">
+          <div class="row colocShow">
+            Alimentation
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.education %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/education.png') }}" alt="">
+          <div class="row colocShow">
+            Education
+          </div>
+        </div>
+      {% endif %}
+      {% if colocation.espace %}
+        <div class="col s3 center">
+          <img class="colocShowImage" src="{{ asset('bundles/app/images/espace.png') }}" alt="">
+          <div class="row colocShow">
+            Mutualisation des espaces
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    {% if colocation.contact or colocation.site or colocation.facebook %}
+<div class="row">
+  <div class="offset-s1 col s1">
+    <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+  </div>
   <div class="col s9">
-    <h2>Rendez-nous visite !</h2>
+    <h2 class="bleu">Rendez-nous visite !</h2>
+  </div>
+</div>
+  <div class="row pictos">
+      {% if colocation.contact %}
+        <div class="offset-s3 col s1 colPicto">
+      <img class="picto" src="{{asset('bundles/app/images/contact.png')}}" alt="profil">
+    </div>
+    <div class="col s2">
+            {{colocation.contact}}
+    </div>
+      {% endif %}
+
+      {% if colocation.site %}
+        <div class="col s1 colPicto">
+      <img class="picto" src="{{asset('bundles/app/images/site.png')}}" alt="marqueur">
+    </div>
+    <div class="col s2">
+          {{colocation.site }}
+    </div>
+      {% endif %}
+
+      {% if colocation.facebook %}
+      <div class="col s1 colPicto">
+        <img class="picto" src="{{asset('bundles/app/images/welcome.png')}}" alt="calendrier">
+      </div>
+      <div class="col s2">
+        {{colocation.facebook}}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}
+<div class="row">
+  <div class="center">
+      <a class="btn waves-light waves-effect" href="{{ path('colocation_edit', { 'id': colocation.id }) }}">Modifier</a>
   </div>
 </div>
 <div class="row">
@@ -43,9 +168,4 @@
     <a class="btn waves-light waves-effect" href="{{ path('colocation_index') }}">Liste des colocs</a>
   </div>
 </div>
-<div class="row">
-  <div class="center">
-      <a class="btn waves-light waves-effect" href="{{ path('colocation_edit', { 'id': colocation.id }) }}">Modifier</a>
-    </div>
-  </div>
 {% endblock %}

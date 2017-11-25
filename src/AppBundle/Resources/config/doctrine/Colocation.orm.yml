@@ -71,6 +71,18 @@ AppBundle\Entity\Colocation:
         photo:
             type: text
             nullable: true
+        contact:
+            type: string
+            length: 255
+            nullable: true
+        site:
+            type: string
+            length: 255
+            nullable: true
+        facebook:
+            type: string
+            length: 255
+            nullable: true
     lifecycleCallbacks:
         prePersist: [ preUpload ]
         preUpdate: [ preUpload ]
