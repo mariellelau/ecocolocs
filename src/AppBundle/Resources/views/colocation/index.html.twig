@@ -19,20 +19,32 @@
 </div>
     <div class="row">
         {%  for colocation in colocations %}
+            {% if loop.index0 is even %}
+                <div class="row">
+                    <div class="offset-s1 col s2">
+                    {% else %}
+                        <div class="col s2">
+            {% endif %}
             {% if colocation.photo %}
-        <div class="col s3">
             <img class="smallImage" src="{{ asset('uploads/images/') }}{{colocation.photo}}" alt="photo colocation">
         </div>
         {% else %}
-            <div class="col s3">
                 <img class="smallImage" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
             </div>
-            {% endif %}
-       <div class="col s3">
+        {% endif %}
+        {% if loop.index0 is even %}
+            <div class="row">
+                <div class="col s3">
+                    {% else %}
+                         <div class="col s4">
+                {% endif %}
            {{ colocation.nom }}
-           {{ colocation.description[:100] | raw }}(...)
+           {{ colocation.description[:100] | raw }}(...)<br/>
            <a class="btn waves-effect waves-light" href="{{ path('colocation_show', { 'id': colocation.id }) }}">Super !</a>
        </div>
+            {% if loop.index0 is odd %}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 
@@ -40,6 +52,9 @@
     {#<a href="{{ path('colocation_show', { 'id': colocation.id }) }}">show</a>#}
     {#<a href="{{ path('colocation_edit', { 'id': colocation.id }) }}">edit</a>#}
 
-
-    <a href="{{ path('colocation_new') }}">Ajouter une colocationn</a>
+<div class="row">
+    <div class="center">
+        <a class="btn waves-effect waves-light" href="{{ path('colocation_new') }}">Ajouter une colocation</a>
+    </div>
+</div>
 {% endblock %}

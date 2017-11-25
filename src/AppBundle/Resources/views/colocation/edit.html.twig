@@ -4,195 +4,183 @@
     <h1>{{ colocation.nom }}</h1>
 
     {{ form_start(edit_form) }}
-    <div class="row">
-      <div class="col s6">
-        {{ form_label(edit_form.nom) }}
-        {{ form_errors(edit_form.nom) }}
-        {{ form_widget(edit_form.nom) }}
-      </div>
-      <div class="col s2">
-        {{ form_label(edit_form.nombrePersonnes) }}
-        {{ form_errors(edit_form.nombrePersonnes) }}
-        {{ form_widget(edit_form.nombrePersonnes) }}
-      </div>
-      <div class="col s4">
-        {{ form_label(edit_form.dateCreation) }}
-        {{ form_errors(edit_form.dateCreation) }}
-        {{ form_widget(edit_form.dateCreation) }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        {{ form_label(edit_form.description) }}
-        {{ form_errors(edit_form.description) }}
-        {{ form_widget(edit_form.description) }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        {{ form_label(edit_form.adresse) }}
-        {{ form_errors(edit_form.adresse) }}
-        {{ form_widget(edit_form.adresse) }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6">
-        {{ form_label(edit_form.codePostal) }}
-        {{ form_errors(edit_form.codePostal) }}
-        {{ form_widget(edit_form.codePostal) }}
-      </div>
-      <div class="col s6">
-        {{ form_label(edit_form.ville) }}
-        {{ form_errors(edit_form.ville) }}
-        {{ form_widget(edit_form.ville) }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="offset-s1 col s1">
-        <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
-      </div>
-      <div class="col s9">
-        <h2>Ce qu'on y fait</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="jardin" />
-          <label for="jardin">  {{ form_label(edit_form.jardin) }}</label>
-          {{ form_errors(edit_form.jardin) }}
-          {{ form_widget(edit_form.jardin) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/jardin.png')}}" alt="jardin">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="ressource" />
-          <label for="ressource">  {{ form_label(edit_form.ressource) }}</label>
-          {{ form_errors(edit_form.ressource) }}
-          {{ form_widget(edit_form.ressource) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/resources.png')}}" alt="économie de ressources">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="consommation" />
-          <label for="consommation">  {{ form_label(edit_form.consommation) }}</label>
-          {{ form_errors(edit_form.consommation) }}
-          {{ form_widget(edit_form.consommation) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/consommation.png')}}" alt="consommation">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="alimentation" />
-          <label for="alimentation">  {{ form_label(edit_form.alimentation) }}</label>
-          {{ form_errors(edit_form.alimentation) }}
-          {{ form_widget(edit_form.alimentation) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/alimentation.png')}}" alt="alimentation">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="espace" />
-          <label for="espace">  {{ form_label(edit_form.espace) }}</label>
-          {{ form_errors(edit_form.espace) }}
-          {{ form_widget(edit_form.espace) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/espace.png')}}" alt="mutualisation des espaces">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="communaute" />
-          <label for="communaute">  {{ form_label(edit_form.communaute) }}</label>
-          {{ form_errors(edit_form.communaute) }}
-          {{ form_widget(edit_form.communaute) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/communaute.png')}}" alt="vie en communautés">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="quartier" />
-          <label for="quartier">  {{ form_label(edit_form.quartier) }}</label>
-          {{ form_errors(edit_form.quartier) }}
-          {{ form_widget(edit_form.quartier) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/quartier.png')}}" alt="vie de quartier">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="art" />
-          <label for="art">  {{ form_label(edit_form.art) }}</label>
-          {{ form_errors(edit_form.art) }}
-          {{ form_widget(edit_form.art) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/art.png')}}" alt="art et sport">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l2 m6 s12">
-          <input type="checkbox" id="education" />
-          <label for="education">  {{ form_label(edit_form.education) }}</label>
-          {{ form_errors(edit_form.education) }}
-          {{ form_widget(edit_form.education) }}
-      </div>
-      <div class="col l2 m6 s12">
-        <img src="{{ asset('bundles/app/images/education.png')}}" alt="éducation">
-      </div>
-      <div class="col l8 m12 s12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis perferendis rerum soluta. Dicta excepturi, iste, at pariatur error, incidunt omnis nemo modi consectetur deserunt sed libero maiores, quas nihil.
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s6">
+                {{ form_label(edit_form.nom) }}
+                {{ form_errors(edit_form.nom) }}
+                {{ form_widget(edit_form.nom) }}
+            </div>
+            <div class="col s2">
+                {{ form_label(edit_form.nombrePersonnes) }}
+                {{ form_errors(edit_form.nombrePersonnes) }}
+                {{ form_widget(edit_form.nombrePersonnes) }}
+            </div>
+            <div class="col s4">
+                {{ form_label(edit_form.dateCreation) }}
+                {{ form_errors(edit_form.dateCreation) }}
+                {{ form_widget(edit_form.dateCreation) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ form_label(edit_form.description) }}
+                {{ form_errors(edit_form.description) }}
+                {{ form_widget(edit_form.description) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ form_label(edit_form.adresse) }}
+                {{ form_errors(edit_form.adresse) }}
+                {{ form_widget(edit_form.adresse) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                {{ form_label(edit_form.codePostal) }}
+                {{ form_errors(edit_form.codePostal) }}
+                {{ form_widget(edit_form.codePostal) }}
+            </div>
+            <div class="col s6">
+                {{ form_label(edit_form.ville) }}
+                {{ form_errors(edit_form.ville) }}
+                {{ form_widget(edit_form.ville) }}
+            </div>
+        </div>
     </div>
 
     <div class="row">
-      <div class="center">
-        <input class="btn waves-effect waves-light" type="submit" value="Enregistrer" />
-      </div>
+        <div class="offset-s1 col s1">
+            <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+        </div>
+        <div class="col s9">
+            <h2 class="bleu">Ce qu'on y fait</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-l2 col l1 m6 s12">
+            {{ form_widget(edit_form.jardin) }}
+            {{ form_label(edit_form.jardin) }}
+            {{ form_errors(edit_form.jardin) }}
+        </div>
+        <div class="col l2 m6 s12 ">
+            <img class="colocImage" src="{{ asset('bundles/app/images/jardin.png')}}" alt="jardin">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.ressource) }}
+            {{ form_label(edit_form.ressource) }}
+            {{ form_errors(edit_form.ressource) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/resources.png')}}" alt="économie de ressources">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.consommation) }}
+            {{ form_label(edit_form.consommation) }}
+            {{ form_errors(edit_form.consommation) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/consommation.png')}}" alt="consommation">
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-l2 col l1 m6 s12">
+            {{ form_widget(edit_form.alimentation) }}
+            {{ form_label(edit_form.alimentation) }}
+            {{ form_errors(edit_form.alimentation) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/alimentation.png')}}" alt="alimentation">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.espace) }}
+            {{ form_label(edit_form.espace) }}
+            {{ form_errors(edit_form.espace) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/espace.png')}}" alt="mutualisation des espaces">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.communaute) }}
+            {{ form_label(edit_form.communaute) }}
+            {{ form_errors(edit_form.communaute) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/communaute.png')}}" alt="vie en communautés">
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-l2 col l1 m6 s12">
+            {{ form_widget(edit_form.quartier) }}
+            {{ form_label(edit_form.quartier) }}
+            {{ form_errors(edit_form.quartier) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/quartier.png')}}" alt="vie de quartier">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.art) }}
+            {{ form_label(edit_form.art) }}
+            {{ form_errors(edit_form.art) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/art.png')}}" alt="art et sport">
+        </div>
+        <div class="col l1 m6 s12">
+            {{ form_widget(edit_form.education) }}
+            {{ form_label(edit_form.education) }}
+            {{ form_errors(edit_form.education) }}
+        </div>
+        <div class="col l2 m6 s12">
+            <img class="colocImage" src="{{ asset('bundles/app/images/education.png')}}" alt="éducation">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-s1 col s1">
+            <img class="small" src="{{ asset('bundles/app/images/housevert.png')}}" alt="">
+        </div>
+        <div class="col s9">
+            <h2 class="bleu">Rendez-nous visite !</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                {{ form_label(edit_form.contact) }}
+                {{ form_errors(edit_form.contact) }}
+                {{ form_widget(edit_form.contact) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ form_label(edit_form.site) }}
+                {{ form_errors(edit_form.site) }}
+                {{ form_widget(edit_form.site) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ form_label(edit_form.facebook) }}
+                {{ form_errors(edit_form.facebook) }}
+                {{ form_widget(edit_form.facebook) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center">
+            <input class="btn waves-effect waves-light" type="submit" title="Enregistrer" />
+        </div>
     </div>
     {{ form_end(edit_form) }}
 
-<div class="row">
-  <div class="center">
-    <a class="btn waves-effect waves-light" href="{{ path('colocation_index') }}">Liste des colocs</a>
-  </div>
-</div>
+    <div class="row">
+        <div class="center">
+            <a class="btn waves-effect waves-light" href="{{ path('colocation_index') }}">Liste des colocs</a>
+        </div>
+    </div>
 
 {% endblock %}

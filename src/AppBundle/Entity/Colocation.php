@@ -83,7 +83,7 @@ class Colocation
 
 
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -93,9 +93,64 @@ class Colocation
     private $nom;
 
     /**
+     * @var integer
+     */
+    private $nombrePersonnes;
+
+    /**
+     * @var string
+     */
+    private $dateCreation;
+
+    /**
      * @var string
      */
     private $description;
+
+    /**
+     * @var boolean
+     */
+    private $jardin;
+
+    /**
+     * @var boolean
+     */
+    private $ressource;
+
+    /**
+     * @var boolean
+     */
+    private $consommation;
+
+    /**
+     * @var boolean
+     */
+    private $alimentation;
+
+    /**
+     * @var boolean
+     */
+    private $espace;
+
+    /**
+     * @var boolean
+     */
+    private $communaute;
+
+    /**
+     * @var boolean
+     */
+    private $quartier;
+
+    /**
+     * @var boolean
+     */
+    private $art;
+
+    /**
+     * @var boolean
+     */
+    private $education;
 
     /**
      * @var string
@@ -103,7 +158,7 @@ class Colocation
     private $adresse;
 
     /**
-     * @var int
+     * @var integer
      */
     private $codePostal;
 
@@ -122,11 +177,31 @@ class Colocation
      */
     private $latitude;
 
+    /**
+     * @var string
+     */
+    private $photo;
+
+    /**
+     * @var string
+     */
+    private $contact;
+
+    /**
+     * @var string
+     */
+    private $site;
+
+    /**
+     * @var string
+     */
+    private $facebook;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -158,6 +233,54 @@ class Colocation
     }
 
     /**
+     * Set nombrePersonnes
+     *
+     * @param integer $nombrePersonnes
+     *
+     * @return Colocation
+     */
+    public function setNombrePersonnes($nombrePersonnes)
+    {
+        $this->nombrePersonnes = $nombrePersonnes;
+
+        return $this;
+    }
+
+    /**
+     * Get nombrePersonnes
+     *
+     * @return integer
+     */
+    public function getNombrePersonnes()
+    {
+        return $this->nombrePersonnes;
+    }
+
+    /**
+     * Set dateCreation
+     *
+     * @param string $dateCreation
+     *
+     * @return Colocation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreation
+     *
+     * @return string
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
      * Set description
      *
      * @param string $description
@@ -179,6 +302,222 @@ class Colocation
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set jardin
+     *
+     * @param boolean $jardin
+     *
+     * @return Colocation
+     */
+    public function setJardin($jardin)
+    {
+        $this->jardin = $jardin;
+
+        return $this;
+    }
+
+    /**
+     * Get jardin
+     *
+     * @return boolean
+     */
+    public function getJardin()
+    {
+        return $this->jardin;
+    }
+
+    /**
+     * Set ressource
+     *
+     * @param boolean $ressource
+     *
+     * @return Colocation
+     */
+    public function setRessource($ressource)
+    {
+        $this->ressource = $ressource;
+
+        return $this;
+    }
+
+    /**
+     * Get ressource
+     *
+     * @return boolean
+     */
+    public function getRessource()
+    {
+        return $this->ressource;
+    }
+
+    /**
+     * Set consommation
+     *
+     * @param boolean $consommation
+     *
+     * @return Colocation
+     */
+    public function setConsommation($consommation)
+    {
+        $this->consommation = $consommation;
+
+        return $this;
+    }
+
+    /**
+     * Get consommation
+     *
+     * @return boolean
+     */
+    public function getConsommation()
+    {
+        return $this->consommation;
+    }
+
+    /**
+     * Set alimentation
+     *
+     * @param boolean $alimentation
+     *
+     * @return Colocation
+     */
+    public function setAlimentation($alimentation)
+    {
+        $this->alimentation = $alimentation;
+
+        return $this;
+    }
+
+    /**
+     * Get alimentation
+     *
+     * @return boolean
+     */
+    public function getAlimentation()
+    {
+        return $this->alimentation;
+    }
+
+    /**
+     * Set espace
+     *
+     * @param boolean $espace
+     *
+     * @return Colocation
+     */
+    public function setEspace($espace)
+    {
+        $this->espace = $espace;
+
+        return $this;
+    }
+
+    /**
+     * Get espace
+     *
+     * @return boolean
+     */
+    public function getEspace()
+    {
+        return $this->espace;
+    }
+
+    /**
+     * Set communaute
+     *
+     * @param boolean $communaute
+     *
+     * @return Colocation
+     */
+    public function setCommunaute($communaute)
+    {
+        $this->communaute = $communaute;
+
+        return $this;
+    }
+
+    /**
+     * Get communaute
+     *
+     * @return boolean
+     */
+    public function getCommunaute()
+    {
+        return $this->communaute;
+    }
+
+    /**
+     * Set quartier
+     *
+     * @param boolean $quartier
+     *
+     * @return Colocation
+     */
+    public function setQuartier($quartier)
+    {
+        $this->quartier = $quartier;
+
+        return $this;
+    }
+
+    /**
+     * Get quartier
+     *
+     * @return boolean
+     */
+    public function getQuartier()
+    {
+        return $this->quartier;
+    }
+
+    /**
+     * Set art
+     *
+     * @param boolean $art
+     *
+     * @return Colocation
+     */
+    public function setArt($art)
+    {
+        $this->art = $art;
+
+        return $this;
+    }
+
+    /**
+     * Get art
+     *
+     * @return boolean
+     */
+    public function getArt()
+    {
+        return $this->art;
+    }
+
+    /**
+     * Set education
+     *
+     * @param boolean $education
+     *
+     * @return Colocation
+     */
+    public function setEducation($education)
+    {
+        $this->education = $education;
+
+        return $this;
+    }
+
+    /**
+     * Get education
+     *
+     * @return boolean
+     */
+    public function getEducation()
+    {
+        return $this->education;
     }
 
     /**
@@ -222,7 +561,7 @@ class Colocation
     /**
      * Get codePostal
      *
-     * @return int
+     * @return integer
      */
     public function getCodePostal()
     {
@@ -300,359 +639,6 @@ class Colocation
     {
         return $this->latitude;
     }
-    /**
-     * @var integer
-     */
-    private $nombrePersonnes;
-
-    /**
-     * @var string
-     */
-    private $dateCreation;
-
-    /**
-     * @var integer
-     */
-    private $jardin;
-
-    /**
-     * @var integer
-     */
-    private $ressource;
-
-    /**
-     * @var integer
-     */
-    private $consommation;
-
-    /**
-     * @var integer
-     */
-    private $alimentation;
-
-    /**
-     * @var integer
-     */
-    private $espace;
-
-    /**
-     * @var integer
-     */
-    private $communauté;
-
-    /**
-     * @var integer
-     */
-    private $quartier;
-
-    /**
-     * @var integer
-     */
-    private $art;
-
-    /**
-     * @var integer
-     */
-    private $education;
-
-
-    /**
-     * Set nombrePersonnes
-     *
-     * @param integer $nombrePersonnes
-     *
-     * @return Colocation
-     */
-    public function setNombrePersonnes($nombrePersonnes)
-    {
-        $this->nombrePersonnes = $nombrePersonnes;
-
-        return $this;
-    }
-
-    /**
-     * Get nombrePersonnes
-     *
-     * @return integer
-     */
-    public function getNombrePersonnes()
-    {
-        return $this->nombrePersonnes;
-    }
-
-    /**
-     * Set dateCreation
-     *
-     * @param string $dateCreation
-     *
-     * @return Colocation
-     */
-    public function setDateCreation($dateCreation)
-    {
-        $this->dateCreation = $dateCreation;
-
-        return $this;
-    }
-
-    /**
-     * Get dateCreation
-     *
-     * @return string
-     */
-    public function getDateCreation()
-    {
-        return $this->dateCreation;
-    }
-
-    /**
-     * Set jardin
-     *
-     * @param integer $jardin
-     *
-     * @return Colocation
-     */
-    public function setJardin($jardin)
-    {
-        $this->jardin = $jardin;
-
-        return $this;
-    }
-
-    /**
-     * Get jardin
-     *
-     * @return integer
-     */
-    public function getJardin()
-    {
-        return $this->jardin;
-    }
-
-    /**
-     * Set ressource
-     *
-     * @param integer $ressource
-     *
-     * @return Colocation
-     */
-    public function setRessource($ressource)
-    {
-        $this->ressource = $ressource;
-
-        return $this;
-    }
-
-    /**
-     * Get ressource
-     *
-     * @return integer
-     */
-    public function getRessource()
-    {
-        return $this->ressource;
-    }
-
-    /**
-     * Set consommation
-     *
-     * @param integer $consommation
-     *
-     * @return Colocation
-     */
-    public function setConsommation($consommation)
-    {
-        $this->consommation = $consommation;
-
-        return $this;
-    }
-
-    /**
-     * Get consommation
-     *
-     * @return integer
-     */
-    public function getConsommation()
-    {
-        return $this->consommation;
-    }
-
-    /**
-     * Set alimentation
-     *
-     * @param integer $alimentation
-     *
-     * @return Colocation
-     */
-    public function setAlimentation($alimentation)
-    {
-        $this->alimentation = $alimentation;
-
-        return $this;
-    }
-
-    /**
-     * Get alimentation
-     *
-     * @return integer
-     */
-    public function getAlimentation()
-    {
-        return $this->alimentation;
-    }
-
-    /**
-     * Set espace
-     *
-     * @param integer $espace
-     *
-     * @return Colocation
-     */
-    public function setEspace($espace)
-    {
-        $this->espace = $espace;
-
-        return $this;
-    }
-
-    /**
-     * Get espace
-     *
-     * @return integer
-     */
-    public function getEspace()
-    {
-        return $this->espace;
-    }
-
-    /**
-     * Set communauté
-     *
-     * @param integer $communauté
-     *
-     * @return Colocation
-     */
-    public function setCommunauté($communauté)
-    {
-        $this->communauté = $communauté;
-
-        return $this;
-    }
-
-    /**
-     * Get communauté
-     *
-     * @return integer
-     */
-    public function getCommunauté()
-    {
-        return $this->communauté;
-    }
-
-    /**
-     * Set quartier
-     *
-     * @param integer $quartier
-     *
-     * @return Colocation
-     */
-    public function setQuartier($quartier)
-    {
-        $this->quartier = $quartier;
-
-        return $this;
-    }
-
-    /**
-     * Get quartier
-     *
-     * @return integer
-     */
-    public function getQuartier()
-    {
-        return $this->quartier;
-    }
-
-    /**
-     * Set art
-     *
-     * @param integer $art
-     *
-     * @return Colocation
-     */
-    public function setArt($art)
-    {
-        $this->art = $art;
-
-        return $this;
-    }
-
-    /**
-     * Get art
-     *
-     * @return integer
-     */
-    public function getArt()
-    {
-        return $this->art;
-    }
-
-    /**
-     * Set education
-     *
-     * @param integer $education
-     *
-     * @return Colocation
-     */
-    public function setEducation($education)
-    {
-        $this->education = $education;
-
-        return $this;
-    }
-
-    /**
-     * Get education
-     *
-     * @return integer
-     */
-    public function getEducation()
-    {
-        return $this->education;
-    }
-    /**
-     * @var integer
-     */
-    private $communaute;
-
-
-    /**
-     * Set communaute
-     *
-     * @param integer $communaute
-     *
-     * @return Colocation
-     */
-    public function setCommunaute($communaute)
-    {
-        $this->communaute = $communaute;
-
-        return $this;
-    }
-
-    /**
-     * Get communaute
-     *
-     * @return integer
-     */
-    public function getCommunaute()
-    {
-        return $this->communaute;
-    }
-    /**
-     * @var string
-     */
-    private $photo;
-
 
     /**
      * Set photo
@@ -677,62 +663,76 @@ class Colocation
     {
         return $this->photo;
     }
-    /**
-     * @var string
-     */
-    private $alt;
 
     /**
-     * @var string
-     */
-    private $url;
-
-
-    /**
-     * Set alt
+     * Set contact
      *
-     * @param string $alt
+     * @param string $contact
      *
      * @return Colocation
      */
-    public function setAlt($alt)
+    public function setContact($contact)
     {
-        $this->alt = $alt;
+        $this->contact = $contact;
 
         return $this;
     }
 
     /**
-     * Get alt
+     * Get contact
      *
      * @return string
      */
-    public function getAlt()
+    public function getContact()
     {
-        return $this->alt;
+        return $this->contact;
     }
 
     /**
-     * Set url
+     * Set site
      *
-     * @param string $url
+     * @param string $site
      *
      * @return Colocation
      */
-    public function setUrl($url)
+    public function setSite($site)
     {
-        $this->url = $url;
+        $this->site = $site;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get site
      *
      * @return string
      */
-    public function getUrl()
+    public function getSite()
     {
-        return $this->url;
+        return $this->site;
+    }
+
+    /**
+     * Set facebook
+     *
+     * @param string $facebook
+     *
+     * @return Colocation
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook
+     *
+     * @return string
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
     }
 }

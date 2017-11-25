@@ -64,6 +64,7 @@ class ColocationController extends Controller
 
           $colocation->setLatitude($nominatim["features"][0]["geometry"]["coordinates"][1]);
           $colocation->setLongitude($nominatim["features"][0]["geometry"]["coordinates"][0]);
+
           $em = $this->getDoctrine()->getManager();
           $em->persist($colocation);
           $em->flush();
@@ -100,6 +101,9 @@ class ColocationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            if ($colocation->getPhoto()) {
+                $colocation->getPhoto()->preUpload();
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('colocation_edit', array('id' => $colocation->getId()));
